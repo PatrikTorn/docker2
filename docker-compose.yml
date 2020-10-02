@@ -1,0 +1,9 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: node /server/index.js
+    volumes:
+      - "./server/:/server/"
+    ports:
+      - "4000:4000"
