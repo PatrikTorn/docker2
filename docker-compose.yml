@@ -1,9 +1,20 @@
 version: '2'
 services:
-  web:
-    build: .
-    command: node /server/index.js
+  server:
+    build:
+      context: ./server
+    working_dir: /server
+    command: bash -c "npm install && node index.js"
     volumes:
       - "./server/:/server/"
     ports:
       - "4000:4000"
+  client:
+    build:
+      context: ./client
+    working_dir: /client
+    command: bash -c "npm install && node index.js"
+    volumes:
+      - "./client/:/client/"
+    ports:
+      - "8001:8001"

@@ -1,5 +1,5 @@
 FROM node:12
-WORKDIR /client
+
 RUN npm install
 
 COPY . .
